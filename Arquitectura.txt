@@ -1,0 +1,51 @@
+src/
+├─ services/            # GLOBAL - Servicios reutilizables
+│   ├─ AuthService.ts         # Firebase Auth: login, register, logout
+│   ├─ ApiService.ts          # Abstracción de Firestore / Cloud Functions
+│   ├─ WebSocketService.ts    # Listeners de tiempo real (opcional)
+│   └─ NotificationService.ts # Firebase Cloud Messaging
+
+├─ components/          # GLOBAL - Design system / UI reusable
+│   ├─ Button.tsx
+│   ├─ Input.tsx
+│   ├─ Modal.tsx
+│   ├─ Card.tsx
+│   └─ Loading.tsx
+
+├─ hooks/               # GLOBAL - Hooks reutilizables
+│   ├─ useDebounce.ts
+│   ├─ useLocalStorage.ts
+│   └─ useMediaQuery.ts
+
+├─ utils/               # GLOBAL - Helpers
+│   ├─ formatters.ts
+│   ├─ validators.ts
+│   └─ constants.ts
+
+├─ features/            # FEATURES - Cada feature aislada
+│   ├─ auth/            # FEATURE - Autenticación
+│   │   ├─ components/  # UI local de la feature
+│   │   │   ├─ LoginForm.tsx
+│   │   │   ├─ RegisterForm.tsx
+│   │   │   └─ OAuthButtons.tsx
+│   │   ├─ services/    # Servicios de la feature (Firebase Auth)
+│   │   │   └─ AuthApiService.ts
+│   │   ├─ hooks/       # Hooks locales de la feature
+│   │   │   └─ useAuth.ts
+│   │   └─ models.ts    # Tipos: User, Credentials
+│   │
+│   └─ tasks/           # FEATURE - Gestión de tareas
+│       ├─ components/
+│       │   ├─ TaskList.tsx
+│       │   ├─ TaskItem.tsx
+│       │   └─ TaskForm.tsx
+│       ├─ services/    # CRUD Firestore
+│       │   └─ TaskService.ts
+│       ├─ hooks/       # Hooks locales
+│       │   └─ useTasks.ts
+│       └─ models.ts    # Tipos: Task, Priority
+
+└─ app/                 # APP BOOTSTRAP / Providers
+    ├─ App.tsx          # Entrada principal de la app
+    ├─ Router.tsx       # Rutas de React
+    └─ Providers.tsx    # Inicialización Firebase, contextos globales

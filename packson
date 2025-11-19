@@ -1,0 +1,5 @@
+"scripts": {
+  "dev": "vite",           // Levanta el servidor de desarrollo
+  "build": "vite build",    // Genera la versión de producción
+  "preview": "vite preview" // Previsualiza la build local
+}
